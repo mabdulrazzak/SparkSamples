@@ -20,7 +20,9 @@ def parseLine(line):
 conf = SparkConf().setMaster("local").setAppName("CrimesHistogram")
 sc = SparkContext(conf = conf)
 
-lines = sc.textFile("file:/C:/Users/mabdulra/Documents/BigData-Spark/SparkCourse/Data/sf-police-calls-for-service-and-incidents/police-department-incidents.csv")
+# NOTE: Make sure the file path below is where the police-department-incidents.csv is stored during the execution of this code. 
+# Data obtained from https://www.kaggle.com/san-francisco/sf-police-calls-for-service-and-incidents/version/151
+lines = sc.textFile("file:///police-department-incidents.csv")
 incidents = lines.map(parseLine)
 
 ###############################################################################
